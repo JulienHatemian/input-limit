@@ -34,4 +34,21 @@ function textLength( inputId, parentId, max ){
             }
         }
     }
+    
+    //Create the small tag
+    if( input != null ){
+        input.addEventListener( 'input', updateLength );
+
+        //Creating the small element
+        const small = document.createElement( 'small' );
+        small.classList.add( 'd-flex', 'info-length', 'float-end' );
+        small.appendChild( spanNumberCharacters );
+        small.appendChild( document.createTextNode( '/' ) );
+        small.appendChild( spanNumberAllowCharacters );
+
+        //Allows you to avoid splitting the display of small tags when you open the modal
+        if( parentContainer.nextElementSibling != null && !parentContainer.nextElementSibling.classList.contains( 'info-length' ) ){
+            parentContainer.parentNode.insertBefore( small, parentContainer.nextSibling );
+        }        
+    }
 }
