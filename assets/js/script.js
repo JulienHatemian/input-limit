@@ -18,4 +18,20 @@ function textLength( inputId, parentId, max ){
     }else{
         spanNumberCharacters.textContent = 0;
     }
+
+    //Updates the number of characters typed
+    let updateLength = function(){
+        let numberCharacters = input.value.length;
+        spanNumberCharacters.textContent = numberCharacters;
+
+        if( maxLength ){
+            spanNumberAllowCharacters.textContent = maxLength;
+            input.setAttribute( "maxlength", maxLength );
+
+            if( numberCharacters > maxLength ){
+                input.value = input.value.slice( 0, maxLength );
+                spanNumberCharacters.textContent = maxLength;
+            }
+        }
+    }
 }
