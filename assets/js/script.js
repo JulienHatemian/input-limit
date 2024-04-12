@@ -2,6 +2,12 @@ document.addEventListener("DOMContentLoaded", function() {
     textLength('input-textarea', 'input-textarea', 50);
 } )
 
+/**
+ * 
+ * @param {*} inputId //Id of the input where the characters will be counted
+ * @param {*} parentId //Parent to which the counter will be attached (small)
+ * @param {*} max //Maximum number of characters
+ */
 function textLength(inputId, parentId, max){
     let maxLength = max;
     let input = document.getElementById(inputId);
